@@ -1,5 +1,5 @@
 #echartsXBLock by wwj718<wuwenjie718@gmail.com>
-优酷开发平台：http://open.echarts.com/
+echart demo : <http://echarts.baidu.com/doc/example.html>
 
 #安装（平台级别的设置）
 *  sudo su edxapp -s /bin/bash
