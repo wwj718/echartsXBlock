@@ -1,6 +1,21 @@
 /* Javascript for echartsXBlock. */
 function echartsXBlockInitStudio(runtime, element) {
 
+    editor = CodeMirror.fromTextArea(
+    document.getElementById("echarts_edit_echarts_data"),
+    { lineNumbers: true }
+    );
+    var echarts_data = $("#echarts_edit_echarts_data").attr("data");
+    editor.setValue(echarts_data);
+
+    $(element).find('#build_echart').bind('click', function() {
+	data = editor.getValue();
+	build_echart(data);
+    });
+
+
+
+
     $(element).find('.action-cancel').bind('click', function() {
         runtime.notify('cancel', {});
     });
@@ -8,6 +23,7 @@ function echartsXBlockInitStudio(runtime, element) {
     $(element).find('.action-save').bind('click', function() {
         var data = {
             'display_name': $('#echarts_edit_display_name').val(),
+            'echarts_data': editor.getValue(),
             'file_id': $('#echarts_edit_file_id').val(),
             'app_id': $('#echarts_edit_app_id').val(),
             'width': $('#echarts_edit_width').val(),
@@ -27,4 +43,12 @@ function echartsXBlockInitStudio(runtime, element) {
             }
         });
     });
+}
+
+function build_echart(data){
+    var myChart = echarts.init(document.getElementById('main'));
+    (new Function(editor.doc.getValue()))();
+    myChart.setOption(option);
+    //myChart.setTheme(e_macarons);
+	console.log(data);
 }

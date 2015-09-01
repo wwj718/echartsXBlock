@@ -12,6 +12,14 @@ from xblock.core import XBlock
 from xblock.fields import Scope, Integer, String, Boolean
 from xblock.fragment import Fragment
 
+import logging
+logger = logging.getLogger(__name__)
+LOG_FILE = "/home/wwj/xblock/echartsXBlock/echarts/log_text.log"
+handler=logging.FileHandler(LOG_FILE)
+logger.addHandler(handler)
+logger.setLevel(logging.DEBUG)
+
+LOG_FILE = "log_file.log"
 class echartsXBlock(XBlock):
 
     '''
@@ -26,6 +34,12 @@ class echartsXBlock(XBlock):
         default="echarts player",
         scope=Scope.settings,
         help="This name appears in the horizontal navigation at the top of the page.")
+
+    echarts_data = String(display_name=" echarts_data",
+	default="echarts_data",
+	scope=Scope.content,
+	help="The echarts_data for your echarts.")
+
 
 
     app_id = String(display_name="video client_id",
@@ -84,6 +98,7 @@ class echartsXBlock(XBlock):
         '''
         context = {
             'display_name': self.display_name,
+            'echarts_data': self.echarts_data,
             'app_id' : self.app_id,
             'file_id': self.file_id,
             'width': self.width,
@@ -91,8 +106,10 @@ class echartsXBlock(XBlock):
         }
         html = self.render_template('static/html/echarts_view.html', context)
         frag = Fragment(html)
-        #frag.add_javascript(self.load_resource('static/js/h5connect.js')) #内有中文，使用插入外部url
-        frag.add_javascript(self.load_resource("static/js/echarts_api.js"))
+        frag.add_javascript_url("http://echarts.baidu.com/doc/asset/css/codemirror.css")
+        frag.add_javascript_url("http://echarts.baidu.com/doc/asset/js/codemirror.js")
+        frag.add_javascript_url("http://echarts.baidu.com/build/dist/echarts-all.js")
+        frag.add_javascript(self.load_resource("static/js/macarons.js"))
         frag.add_javascript(self.load_resource("static/js/echarts_view.js"))
         frag.initialize_js('echartsXBlockInitView')
         return frag
@@ -104,6 +121,7 @@ class echartsXBlock(XBlock):
         """
         context = {
             'display_name': self.display_name,
+            'echarts_data': self.echarts_data,
             'app_id' : self.app_id,
             'file_id': self.file_id,
             'width': self.width,
@@ -112,8 +130,13 @@ class echartsXBlock(XBlock):
         html = self.render_template('static/html/echarts_edit.html', context)
 
         frag = Fragment(html)
+        frag.add_javascript_url("http://echarts.baidu.com/doc/asset/css/codemirror.css")
+        frag.add_javascript_url("http://echarts.baidu.com/doc/asset/js/codemirror.js")
+        frag.add_javascript_url("http://echarts.baidu.com/build/dist/echarts-all.js")
+        frag.add_javascript(self.load_resource("static/js/macarons.js"))
         frag.add_javascript(self.load_resource("static/js/echarts_edit.js"))
         frag.initialize_js('echartsXBlockInitStudio')
+        logger.info("studio_view|return")
         return frag
 
     @XBlock.json_handler
@@ -122,6 +145,7 @@ class echartsXBlock(XBlock):
         The saving handler.
         """
         self.display_name = data['display_name']
+        self.echarts_data= data['echarts_data']
         self.app_id = data['app_id']
         self.file_id = data['file_id']
         self.width = data['width']

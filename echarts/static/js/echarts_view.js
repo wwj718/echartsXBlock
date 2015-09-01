@@ -5,9 +5,16 @@ function echartsXBlockInitView(runtime, element) {
      * In the CMS, element is the jQuery object associated*
      * So here I make sure element is the jQuery object */
      //get params from studio
-     get_params(runtime, element);
-     console.log("mytest");
+     //get_params(runtime, element);
+    var echarts_data = $("#echarts_edit_echarts_data").attr("data");
+    //console.log("mytest");
+    var myChart = echarts.init(document.getElementById('main'));
+    (new Function(echarts_data))();
+    myChart.setOption(option);
+    //myChart.setTheme(e_macarons);
+	console.log(data);
 }
+
 function get_params(runtime, element){
 	$.ajax({
             type: "POST",
