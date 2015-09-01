@@ -15,6 +15,7 @@ function echartsXBlockInitView(runtime, element) {
 	console.log(data);
 }
 
+/*
 function get_params(runtime, element){
 	$.ajax({
             type: "POST",
@@ -32,11 +33,10 @@ function get_params(runtime, element){
         });
 
 }
-
 function show_player(file_id,app_id,width,height){
      player = new YKU.Player('echartsplayer',{
          styleid: '0',
             client_id: app_id,
             vid: file_id
      });
-}
+}*/

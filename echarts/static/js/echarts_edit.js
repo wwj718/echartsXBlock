@@ -1,19 +1,16 @@
 /* Javascript for echartsXBlock. */
 function echartsXBlockInitStudio(runtime, element) {
-
     editor = CodeMirror.fromTextArea(
-    document.getElementById("echarts_edit_echarts_data"),
+    document.getElementById("echarts_edit_echarts_data_textarea"),
     { lineNumbers: true }
     );
-    var echarts_data = $("#echarts_edit_echarts_data").attr("data");
+    var echarts_data = $("#echarts_data").attr("data");
     editor.setValue(echarts_data);
 
     $(element).find('#build_echart').bind('click', function() {
 	data = editor.getValue();
 	build_echart(data);
     });
-
-
 
 
     $(element).find('.action-cancel').bind('click', function() {
@@ -23,12 +20,8 @@ function echartsXBlockInitStudio(runtime, element) {
     $(element).find('.action-save').bind('click', function() {
         var data = {
             'display_name': $('#echarts_edit_display_name').val(),
-            'echarts_data': editor.getValue(),
-            'file_id': $('#echarts_edit_file_id').val(),
-            'app_id': $('#echarts_edit_app_id').val(),
-            'width': $('#echarts_edit_width').val(),
-            'height': $('#echarts_edit_height').val(),
-        };
+            'echarts_data': editor.getValue()
+       };
 
         runtime.notify('save', {state: 'start'});
 

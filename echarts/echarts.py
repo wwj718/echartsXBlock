@@ -98,11 +98,7 @@ class echartsXBlock(XBlock):
         '''
         context = {
             'display_name': self.display_name,
-            'echarts_data': self.echarts_data,
-            'app_id' : self.app_id,
-            'file_id': self.file_id,
-            'width': self.width,
-            'height': self.height
+            'echarts_data': self.echarts_data
         }
         html = self.render_template('static/html/echarts_view.html', context)
         frag = Fragment(html)
@@ -121,14 +117,9 @@ class echartsXBlock(XBlock):
         """
         context = {
             'display_name': self.display_name,
-            'echarts_data': self.echarts_data,
-            'app_id' : self.app_id,
-            'file_id': self.file_id,
-            'width': self.width,
-            'height': self.height
+            'echarts_data': self.echarts_data
         }
         html = self.render_template('static/html/echarts_edit.html', context)
-
         frag = Fragment(html)
         frag.add_javascript_url("http://echarts.baidu.com/doc/asset/css/codemirror.css")
         frag.add_javascript_url("http://echarts.baidu.com/doc/asset/js/codemirror.js")
@@ -146,10 +137,6 @@ class echartsXBlock(XBlock):
         """
         self.display_name = data['display_name']
         self.echarts_data= data['echarts_data']
-        self.app_id = data['app_id']
-        self.file_id = data['file_id']
-        self.width = data['width']
-        self.height = data['height']
 
         return {
             'result': 'success',

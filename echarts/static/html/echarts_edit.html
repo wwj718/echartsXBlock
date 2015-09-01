@@ -9,42 +9,21 @@
             <span class="tip setting-help">This name appears in the horizontal navigation at the top of the page.</span>
         </li>
       
-
-        <li class="field comp-setting-entry is-set">
-            <div class="wrapper-comp-setting">
-                <label class="label setting-label" for="echarts_edit_app_id">Video client_id</label>
-                <input class="input setting-input" id="echarts_edit_app_id" value="{{ app_id }}" type="text">
-            </div>
-            <span class="tip setting-help">The  client_id for your video.</span>
-        </li>
         
-        <li class="field comp-setting-entry is-set">
+        
+         <li class="field comp-setting-entry is-set">
             <div class="wrapper-comp-setting">
-                <label class="label setting-label" for="echarts_edit_file_id">Video vid</label>
-                <input class="input setting-input" id="echarts_edit_file_id" value="{{ file_id }}" type="text">
+                <label class="label setting-label" for="echarts_edit_display_name">Display Name</label>
+                <div data="{{echarts_data}}" id="echarts_data"><div>
+                <textarea rows="10" id="echarts_edit_echarts_data_textarea" cols="60"></textarea>
             </div>
-            <span class="tip setting-help">The vid for your video.</span>
+            <span class="tip setting-help">echarts_data</span>
         </li>
- 
-        <li class="field comp-setting-entry is-set">
-            <div class="wrapper-comp-setting">
-                <label class="label setting-label" for="echarts_edit_width">width</label>
-                <input class="input setting-input" id="echarts_edit_width" value="{{ width }}" type="text" placeholder="600">
-            </div>
-            <div class="wrapper-comp-setting">
-                <label class="label setting-label" for="echarts_edit_height">height</label>
-                <input class="input setting-input" id="echarts_edit_height" value="{{ height }}" type="text" placeholder="372">
-            </div>
-            <span class="tip setting-help">width and height.</span>
-        </li>
-               
     </ul>
 
 
     <div id="main" style="height:400px"></div>
     
-    <span>echarts_data</span><textarea wrap="off" cols="80" rows="10" data="{{echarts_data}}" id="echarts_edit_echarts_data" ></textarea>
-        </li>
 
 
     <div class="xblock-actions">

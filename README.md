@@ -13,3 +13,6 @@ echart demo : <http://echarts.baidu.com/doc/example.html>
 
 #使用方法（结合腾讯云）
 参考我的文章:[在edx中使用优酷视频服务]()
+
+#记录坑
+有一个巨大的坑：student view 的html也会被渲染到studio,如果这两边有相同的元素可能会出错
