@@ -4,7 +4,7 @@ function echartsXBlockInitStudio(runtime, element) {
     document.getElementById("echarts_edit_echarts_data_textarea"),
     { lineNumbers: true }
     );
-    var echarts_data = $("#echarts_data").attr("data");
+    var echarts_data = $(element).find("#echarts_data").attr("data");
     editor.setValue(echarts_data);
 
     $(element).find('#build_echart').bind('click', function() {
@@ -19,7 +19,7 @@ function echartsXBlockInitStudio(runtime, element) {
 
     $(element).find('.action-save').bind('click', function() {
         var data = {
-            'display_name': $('#echarts_edit_display_name').val(),
+            'display_name': $(element).find('#echarts_edit_display_name').val(),
             'echarts_data': editor.getValue()
        };
 
@@ -40,7 +40,7 @@ function echartsXBlockInitStudio(runtime, element) {
 
 function build_echart(data){
     var myChart = echarts.init(document.getElementById('main'));
-    (new Function(editor.doc.getValue()))();
+    var option = (new Function(editor.doc.getValue()))();
     myChart.setOption(option);
     //myChart.setTheme(e_macarons);
 	console.log(data);

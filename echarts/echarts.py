@@ -37,7 +37,7 @@ class echartsXBlock(XBlock):
 
     echarts_data = String(display_name=" echarts_data",
 	default="echarts_data",
-	scope=Scope.content,
+	scope=Scope.settings, #粒度最小
 	help="The echarts_data for your echarts.")
 
 

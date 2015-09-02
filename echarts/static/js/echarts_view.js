@@ -6,37 +6,13 @@ function echartsXBlockInitView(runtime, element) {
      * So here I make sure element is the jQuery object */
      //get params from studio
      //get_params(runtime, element);
-    var echarts_data = $("#echarts_edit_echarts_data").attr("data");
+    var echarts_data = $(element).find(".echarts_edit_echarts_data").attr("data");
     //console.log("mytest");
-    var myChart = echarts.init(document.getElementById('main'));
+    var main = $(element).find('.echarts_div')[0];
+    var myChart = echarts.init(main);
     (new Function(echarts_data))();
     myChart.setOption(option);
     //myChart.setTheme(e_macarons);
-	console.log(data);
+	console.log(echarts_data);
 }
 
-/*
-function get_params(runtime, element){
-	$.ajax({
-            type: "POST",
-            url: runtime.handlerUrl(element, 'get_params'),
-            data: JSON.stringify({a: 'a'}),
-            success: function(result) {
-                console.log(result);
-                file_id = result.file_id;
-                app_id = result.app_id;
-                width = result.width;
-                height = result.height;
-                show_player(file_id,app_id,width,height);
-                //watched_status.text(result.watched);
-            }
-        });
-
-}
-function show_player(file_id,app_id,width,height){
-     player = new YKU.Player('echartsplayer',{
-         styleid: '0',
-            client_id: app_id,
-            vid: file_id
-     });
-}*/
