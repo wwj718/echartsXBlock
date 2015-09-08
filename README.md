@@ -1,4 +1,6 @@
-#echartsXBLock by wwj718<wuwenjie718@gmail.com>
+#echartsXBLock 
+--by wwj718<wuwenjie718@gmail.com>
+
 This package provides an XBlock to use [echarts](https://github.com/ecomfe/echarts) in edX platform
 
 echart demo : <http://echarts.baidu.com/doc/example.html>
@@ -25,6 +27,7 @@ echart demo : <http://echarts.baidu.com/doc/example.html>
     *  Click "Advanced" and choose "echart"
 
 #echart
+![echarts0](http://7sby7q.com1.z0.glb.clouddn.com/echarts0.jpeg)
 ![echarts1](http://7sby7q.com1.z0.glb.clouddn.com/echarts1.jpeg)
 ![echarts2](http://7sby7q.com1.z0.glb.clouddn.com/echarts2.jpeg)
 ![echarts3](http://7sby7q.com1.z0.glb.clouddn.com/echarts3.jpeg)
