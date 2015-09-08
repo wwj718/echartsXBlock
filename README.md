@@ -1,18 +1,32 @@
 #echartsXBLock by wwj718<wuwenjie718@gmail.com>
+This package provides an XBlock to use [echarts](https://github.com/ecomfe/echarts) in edX platform
+
 echart demo : <http://echarts.baidu.com/doc/example.html>
 
-#安装（平台级别的设置）
+
+
+#Installation
 *  sudo su edxapp -s /bin/bash
 *  cd ~
 *  source edxapp_env
 *  pip install -e git+https://github.com/wwj718/echartsXBLock
-*  在/edx/app/edxapp/cms.envs.json 添加 `"ALLOW_ALL_ADVANCED_COMPONENTS": true,` 到FEATURES
+*  in /edx/app/edxapp/cms.envs.json add `"ALLOW_ALL_ADVANCED_COMPONENTS": true,` to  to the list of FEATURES
 
-#在studio中设置(课程级别的设置)
-进入到"Settings" ⇒ "Advanced Settings",将"echarts"添加到Advanced Module List
+#Course Authoring in edX Studio
+1.  Change Advanced Settings
+    *  Open a course you are authoring and select "Settings" ⇒ "Advanced Settings
+    *  Navigate to the section titled "Advanced Module List"
+    *  Add "echart" to module list
 
-#使用方法（结合腾讯云）
-参考我的文章:[在edx中使用优酷视频服务]()
+2.  Create an echart XBlock
+    *  Return to the Course Outline
+    *  Create a Section, Sub-section and Unit, if you haven't already
+    *  In the "Add New Component" interface, you should now see an "Advanced" button
+    *  Click "Advanced" and choose "echart"
 
-#记录坑
-有一个巨大的坑：student view 的html也会被渲染到studio,如果这两边有相同的元素可能会出错
+#echart
+![echarts1](http://7sby7q.com1.z0.glb.clouddn.com/echarts1.jpeg)
+![echarts2](http://7sby7q.com1.z0.glb.clouddn.com/echarts2.jpeg)
+![echarts3](http://7sby7q.com1.z0.glb.clouddn.com/echarts3.jpeg)
+![echarts4](http://7sby7q.com1.z0.glb.clouddn.com/echarts4.jpeg)
+![echarts5](http://7sby7q.com1.z0.glb.clouddn.com/echarts5.jpeg)
